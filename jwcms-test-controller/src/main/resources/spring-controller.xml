@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:task="http://www.springframework.org/schema/task" xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xmlns:tx="http://www.springframework.org/schema/tx" xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans  
+  		http://www.springframework.org/schema/beans/spring-beans-4.2.xsd 
+  		http://www.springframework.org/schema/context  
+ 	 	http://www.springframework.org/schema/context/spring-context-4.2.xsd  
+  		http://www.springframework.org/schema/mvc  
+  		http://www.springframework.org/schema/mvc/spring-mvc-4.2.xsd
+  		http://www.springframework.org/schema/tx 
+        http://www.springframework.org/schema/tx/spring-tx-4.2.xsd
+  		http://www.springframework.org/schema/task 
+  		http://www.springframework.org/schema/task/spring-task-4.2.xsd
+  		http://www.springframework.org/schema/aop
+  		http://www.springframework.org/schema/aop/spring-aop-4.2.xsd">
+
+	<!-- 属性文件位置 -->
+	<!-- <bean id="propertyPlaceholderConfigurer"
+		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="locations">
+			<list>
+				<value>classpath:application.properties</value>
+				<value>classpath:dubbo.properties</value>
+			</list>
+		</property>
+	</bean> -->
+	
+	<!-- 注解扫描包 -->
+	<!-- <context:component-scan base-package="jwcms" /> -->
+
+	<!-- 开启注解，否则Controller响应结果都是HTML格式 -->
+	<mvc:annotation-driven />
+
+	<!-- <mvc:resources location="/resources/" mapping="/resources/**" /> -->
+	<!-- 配置静态资源，直接映射到对应的文件夹，不被DispatcherServlet处理，3.04新增功能，需要重新设置spring-mvc-3.0.xsd -->
+	<!-- <mvc:resources mapping="/img/**" location="/img/" />
+	<mvc:resources mapping="/js/**" location="/js/" />
+	<mvc:resources mapping="/css/**" location="/css/" />
+	<mvc:resources mapping="/html/**" location="/html/" /> -->
+
+	<!-- 定义跳转的文件的前后缀 ，视图模式配置 -->
+	<!-- <bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		这里的配置我的理解是自动给后面action的方法return的字符串加上前缀和后缀，变成一个 可用的url地址
+		<property name="prefix" value="/WEB-INF/jsp/" />
+		<property name="suffix" value=".jsp" />
+	</bean> -->
+
+	<bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping" />
+	
+	<bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter">
+		<property name="messageConverters">
+			<list>
+				<bean class="org.springframework.http.converter.StringHttpMessageConverter">
+					<property name="supportedMediaTypes">
+						<list>
+							<value>text/html; charset=UTF-8</value>
+							<value>application/json;charset=UTF-8</value>
+						</list>
+					</property>
+				</bean>
+				<bean class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter">
+					<property name="supportedMediaTypes">
+						<list>
+							<value>text/html; charset=UTF-8</value>
+							<value>application/json;charset=UTF-8</value>
+						</list>
+					</property>
+				</bean>
+			</list>
+		</property>
+	</bean>
+
+
+	<mvc:interceptors>
+		<bean class="jwcms.test.interceptor.LoggerInterceptor" />
+		<bean class="jwcms.test.interceptor.BeforeRequestInterceptor" />
+
+		<!-- 对 物流商PC端 / 司机APP端 相关Web API进行拦截 -->
+		<mvc:interceptor>
+			<mvc:mapping path="/jwcms/user/**" />
+			<bean class="jwcms.test.interceptor.LoginRequiredInterceptor" />
+		</mvc:interceptor>
+	</mvc:interceptors>
+
+	<bean id="exceptionResolver" class="jwcms.test.framework.OverallExceptionResolver" />
+</beans>

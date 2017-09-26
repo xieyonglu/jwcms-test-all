@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- 咨询服务表t_user数据库操作接口XML实现 -->
+<mapper namespace="jwcms.test.dao.UserDao">
+	<resultMap id="BaseResultMap" type="jwcms.test.model.TUser">
+		<id column="id" property="id" />
+	    <result column="a" property="a" />
+	    <result column="b" property="b" />
+	    
+	    <result column="is_delete" property="isDelete" />
+	    <result column="creator" property="creator" />
+	    <result column="created_at" property="createdAt" />
+	    <result column="modifier" property="modifier" />
+	    <result column="updated_at" property="updatedAt" />
+	</resultMap>
+
+	<sql id="Base_Column_List_Insert">
+		id
+		,a
+		,b
+		
+		,is_delete
+		,creator
+		,created_at
+		,modifier
+		,updated_at
+	</sql>
+
+	<sql id="Base_Column_List">
+		<include refid="Base_Column_List_Insert" />
+	</sql>
+	
+	<sql id="insert_column">
+		<trim suffixOverrides=",">
+			id,
+			
+			<if test="a != null">
+				a,
+			</if>
+			
+			<if test="b != null">
+				b,
+			</if>
+			
+			
+			<if test="isDelete != null">
+				is_delete,
+			</if>
+			
+			<if test="creator != null">
+				creator,
+			</if>
+			
+			<if test="createdAt != null">
+				created_at,
+			</if>
+			
+			<if test="modifier != null">
+				modifier,
+			</if>
+			
+			<if test="updatedAt != null">
+				updated_at,
+			</if>
+		</trim>
+	</sql>
+
+	<sql id="insert_value">
+		<trim suffixOverrides=",">
+			null,
+			
+			<if test="a != null">
+				#{a, jdbcType=VARCHAR},
+			</if>
+			
+			<if test="b != null">
+				#{b, jdbcType=VARCHAR},
+			</if>
+			
+			
+			<if test="isDelete != null">
+				#{isDelete, jdbcType=VARCHAR},
+			</if>
+			
+			<if test="creator != null">
+				#{creator, jdbcType=VARCHAR},
+			</if>
+			
+			<if test="createdAt != null">
+				#{createdAt, jdbcType=DATE},
+			</if>
+			
+			<if test="modifier != null">
+				#{modifier, jdbcType=VARCHAR},
+			</if>
+			
+			<if test="updatedAt != null">
+				#{updatedAt, jdbcType=DATE},
+			</if>
+		</trim>
+	</sql>
+	
+	<!-- useGeneratedKeys="true" keyProperty="id" -->
+	<insert id="createUser" parameterType="jwcms.test.model.TUser">
+		insert into t_user (
+			<include refid="insert_column" />
+		)
+		values (
+			<include refid="insert_value" />
+		)
+		
+	    <selectKey keyProperty="id" resultType="java.lang.Long" >
+            SELECT LAST_INSERT_ID() AS value
+        </selectKey>
+	</insert>
+	
+	
+	<update id="removeUser" parameterType="java.lang.Long">
+		UPDATE t_user
+		SET is_delete = 'Y'
+		WHERE id = #{userId}
+	</update>
+	
+	
+	<update id="updateUser" parameterType="jwcms.test.model.TUser">
+		UPDATE t_user
+		SET
+		
+		<if test="a != null">
+			a = #{a},
+		</if>
+
+		<if test="b != null">
+			b = #{b},
+		</if>
+		
+		
+		<if test="isDelete != null">
+			is_delete = #{isDelete},
+		</if>
+		
+		<if test="creator != null">
+			creator = #{creator},
+		</if>
+		
+		<if test="createdAt != null">
+			created_at = #{createdAt},
+		</if>
+		
+		<if test="modifier != null">
+			modifier = #{modifier},
+		</if>
+		
+		<if test="updatedAt != null">
+			updated_at = #{updatedAt},
+		</if>
+		
+		id = #{id}
+		WHERE id = #{id}
+	</update>
+
+	
+	<select id="queryUserById" resultMap="BaseResultMap" parameterType="java.lang.Long">
+		SELECT
+		<include refid="Base_Column_List" />
+		FROM t_user
+		WHERE is_delete = 'N'
+		AND id = #{userId}
+	</select>
+	
+	
+	<sql id="queryUserSQL">
+		is_delete = 'N'
+	
+		<if test="a != null">
+			AND a = #{a}
+		</if>
+		
+		<if test="b != null">
+			AND b = #{b}
+		</if>
+	</sql>
+
+
+	<select id="countUser" resultType="java.lang.Long" parameterType="jwcms.test.criteria.UserCriteria">
+		SELECT COUNT(id) FROM t_user
+		
+		where
+		<include refid="queryUserSQL" />
+	</select>
+
+
+	<select id="queryUser" resultMap="BaseResultMap" parameterType="jwcms.test.criteria.UserCriteria">
+		SELECT
+		<include refid="Base_Column_List" />
+		FROM t_user
+
+		where
+		<include refid="queryUserSQL" />
+
+		order by created_at desc
+
+		<if test="pageIndex != null and pageSize != null">
+			LIMIT #{pageIndex}, #{pageSize}
+		</if>
+	</select>
+	
+</mapper>
