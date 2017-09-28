@@ -1,0 +1,1 @@
+java -server -jar jwcms-test-startup.jar
