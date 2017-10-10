@@ -1,3 +1,5 @@
+CREATE DATABASE db_test;
+
 CREATE TABLE `t_user` (
 	`id` bigint(20) unsigned NOT NULL AUTO_INCREMENT COMMENT '自增主键ID',
 	`a` varchar(20) NOT NULL DEFAULT '' COMMENT '字段a',
