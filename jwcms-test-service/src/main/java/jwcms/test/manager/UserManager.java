@@ -2,7 +2,7 @@ package jwcms.test.manager;
 
 import java.util.List;
 
-import jwcms.common.query.QueryResult;
+import jwcms.test.common.query.QueryResult;
 import jwcms.test.criteria.UserCriteria;
 import jwcms.test.model.User;
 

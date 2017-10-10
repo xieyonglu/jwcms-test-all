@@ -6,8 +6,8 @@ import javax.annotation.Resource;
 
 import org.springframework.stereotype.Service;
 
-import jwcms.common.exception.ServiceException;
-import jwcms.common.query.QueryResult;
+import jwcms.test.common.exception.ServiceException;
+import jwcms.test.common.query.QueryResult;
 import jwcms.test.converter.UserConverter;
 import jwcms.test.criteria.UserCriteria;
 import jwcms.test.dao.UserDao;

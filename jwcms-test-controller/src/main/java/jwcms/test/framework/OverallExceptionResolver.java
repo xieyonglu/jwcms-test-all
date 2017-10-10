@@ -11,8 +11,8 @@ import org.springframework.web.method.HandlerMethod;
 import org.springframework.web.servlet.HandlerExceptionResolver;
 import org.springframework.web.servlet.ModelAndView;
 
-import jwcms.common.exception.ServiceException;
-import jwcms.common.exception.SystemException;
+import jwcms.test.common.exception.ServiceException;
+import jwcms.test.common.exception.SystemException;
 
 
 /**

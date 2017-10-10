@@ -1,4 +1,4 @@
-package jwcms.common.exception;
+package jwcms.test.common.exception;
 
 @FunctionalInterface
 public interface IExceptionCode {

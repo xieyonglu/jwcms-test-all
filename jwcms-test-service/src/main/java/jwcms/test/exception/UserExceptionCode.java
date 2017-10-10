@@ -1,8 +1,8 @@
 package jwcms.test.exception;
 
-import jwcms.common.exception.Code;
-import jwcms.common.exception.Desc;
-import jwcms.common.exception.IExceptionCode;
+import jwcms.test.common.exception.Code;
+import jwcms.test.common.exception.Desc;
+import jwcms.test.common.exception.IExceptionCode;
 
 /**
  * <h1>用户信息异常枚举</h1>

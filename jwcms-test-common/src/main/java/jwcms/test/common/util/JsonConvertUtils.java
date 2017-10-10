@@ -1,4 +1,4 @@
-package jwcms.common.util;
+package jwcms.test.common.util;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -15,7 +15,7 @@ import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.exc.UnrecognizedPropertyException;
 
-import jwcms.common.exception.SystemException;
+import jwcms.test.common.exception.SystemException;
 
 @SuppressWarnings("unchecked")
 public class JsonConvertUtils {

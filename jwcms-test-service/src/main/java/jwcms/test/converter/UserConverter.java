@@ -4,7 +4,7 @@ import java.sql.Timestamp;
 
 import org.springframework.stereotype.Service;
 
-import jwcms.common.converter.Converter;
+import jwcms.test.common.converter.Converter;
 import jwcms.test.model.TUser;
 import jwcms.test.model.User;
 

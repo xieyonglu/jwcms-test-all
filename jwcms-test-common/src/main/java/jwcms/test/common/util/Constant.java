@@ -1,4 +1,4 @@
-package jwcms.common.util;
+package jwcms.test.common.util;
 
 /**
  * <h1>系统常量</h1>

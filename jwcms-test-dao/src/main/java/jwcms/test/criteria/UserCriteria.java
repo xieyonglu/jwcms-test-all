@@ -1,6 +1,6 @@
 package jwcms.test.criteria;
 
-import jwcms.test.model.User;
+import jwcms.test.model.TUser;
 
 
 /**
@@ -10,7 +10,7 @@ import jwcms.test.model.User;
  * @date 2017/06/27
  *
  */
-public class UserCriteria extends User {
+public class UserCriteria extends TUser {
 
 	private static final long serialVersionUID = -3803331863438751582L;
 	

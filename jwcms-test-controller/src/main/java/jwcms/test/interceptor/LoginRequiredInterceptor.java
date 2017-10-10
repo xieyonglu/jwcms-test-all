@@ -9,8 +9,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.web.method.HandlerMethod;
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 
-import jwcms.common.util.Constant;
-import jwcms.common.util.JsonConvertUtils;
+import jwcms.test.common.util.Constant;
+import jwcms.test.common.util.JsonConvertUtils;
 import jwcms.test.framework.ResponseEntity;
 
 /**

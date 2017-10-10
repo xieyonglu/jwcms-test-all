@@ -1,4 +1,4 @@
-package jwcms.common.exception;
+package jwcms.test.common.exception;
 
 import java.lang.reflect.Field;
 import java.text.MessageFormat;

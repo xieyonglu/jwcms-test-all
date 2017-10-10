@@ -1,4 +1,4 @@
-package jwcms.common.exception;
+package jwcms.test.common.exception;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
@@ -7,8 +7,8 @@ import java.lang.annotation.Target;
 
 @Retention(RetentionPolicy.RUNTIME)
 @Target(ElementType.FIELD)
-public @interface Code {
+public @interface Desc {
 	
-	public int value() default -1;
+	public String value() default "";
 	
 }
