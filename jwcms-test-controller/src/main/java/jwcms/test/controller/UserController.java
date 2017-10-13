@@ -56,10 +56,10 @@ public class UserController {
     @ApiImplicitParam(name = "user", value = "用户详细实体user", required = true, dataType = "User")
 	public ResponseEntity<?> createUser(HttpServletRequest httpRequest, HttpServletResponse httpResponse, @Valid @RequestBody CreateUserRequest request, BindingResult br) throws Exception {
 		if (br.hasErrors()) {
-            System.out.println("Error -> " + br.getObjectName() + "--" + br.getFieldError().getDefaultMessage());
             throw new ServiceException(br.getFieldError().getDefaultMessage());
         }
 		
+		//
 		User user = new User();
 		user.setA(request.getA());
 		user.setB(request.getB());
