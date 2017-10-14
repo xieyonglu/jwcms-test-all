@@ -1,4 +1,4 @@
-FROM 0.0.0.0/env/jdk8
+FROM frolvlad/alpine-oraclejdk8:slim
 COPY ./jwcms-test-startup/target/jwcms-test-startup.jar /root/startup/
 WORKDIR /root/startup/
 EXPOSE 8080
