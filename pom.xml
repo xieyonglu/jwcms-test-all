@@ -33,6 +33,10 @@
 		<spring.version>4.3.9.RELEASE</spring.version>
 		<spring-boot.version>1.3.5.RELEASE</spring-boot.version>
 		<spring-cloud.version>1.1.2.RELEASE</spring-cloud.version>
+		
+		<zookeeper.version>3.5.1-alpha</zookeeper.version>
+		<zkclient.version>0.9</zkclient.version>
+		<alibaba.dubbo.version>2.8.4a</alibaba.dubbo.version>
 
 		<springext-plugin-version>1.2</springext-plugin-version>
 		<jetty-version>8.1.7.v20120910</jetty-version>
@@ -246,6 +250,35 @@
 			<version>1.2.16</version>
 		</dependency>
 		
+		<!-- Alibaba Dubbo -->
+		<dependency>
+			<groupId>com.alibaba</groupId>
+			<artifactId>dubbo</artifactId>
+			<version>${alibaba.dubbo.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.alibaba</groupId>
+			<artifactId>dubbo-rpc-rest</artifactId>
+			<version>${alibaba.dubbo.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.alibaba</groupId>
+			<artifactId>dubbo-rpc-webservice</artifactId>
+			<version>${alibaba.dubbo.version}</version>
+		</dependency>
+
+
+		<!-- Apache ZooKeeper -->
+		<dependency>
+			<groupId>org.apache.zookeeper</groupId>
+			<artifactId>zookeeper</artifactId>
+			<version>${zookeeper.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.101tec</groupId>
+			<artifactId>zkclient</artifactId>
+			<version>${zkclient.version}</version>
+		</dependency>
 		
 		<dependency>
 			<groupId>junit</groupId>

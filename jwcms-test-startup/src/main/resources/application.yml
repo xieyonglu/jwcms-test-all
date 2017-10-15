@@ -3,6 +3,6 @@ server.port: 8004
 ## DataBase
 database:
     driverClassName: com.mysql.jdbc.Driver
-    url: jdbc:mysql://0.0.0.0:3306/db_test?useUnicode=true&characterEncoding=utf8
+    url: jdbc:mysql://localhost:3306/db_test?useUnicode=true&characterEncoding=utf8
     username: root
     password: root
