@@ -6,3 +6,15 @@ database:
     url: jdbc:mysql://localhost:3306/db_test?useUnicode=true&characterEncoding=utf8
     username: root
     password: root
+
+## Redis
+redis:
+    master.write-only: false
+    masterName: mymaster
+    password: 123456
+    host: 127.0.0.1:26379,127.0.0.1:26380,127.0.0.1:26381
+    maxTotal: 1000
+    maxIdle: 300
+    maxWaitMillis: 3000
+    connectionTimeout: 5000
+    soTimeout: 5000

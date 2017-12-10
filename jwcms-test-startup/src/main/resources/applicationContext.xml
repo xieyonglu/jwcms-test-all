@@ -17,6 +17,7 @@
 	<import resource="classpath*:persistence.xml" />
 	<import resource="classpath*:spring-service.xml" />
 	<import resource="classpath*:spring-dubbo.xml" />
+	<import resource="classpath*:spring-redis.xml" />
 	<import resource="classpath*:spring-controller.xml" />
 
 </beans>
