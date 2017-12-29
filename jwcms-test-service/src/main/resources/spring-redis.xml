@@ -20,7 +20,6 @@
         <property name="password" value="${redis.password}" />
         
         <property name="poolConfig" ref="jedisPoolConfig" />
-        <!--<property name="password" value="${redis.password}" />-->
     </bean>
 
     <bean id="redisDataSource" class="jwcms.test.common.cache.redis.core.RedisDataSourceImpl">

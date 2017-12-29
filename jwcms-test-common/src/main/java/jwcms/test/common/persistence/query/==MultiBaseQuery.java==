@@ -1,0 +1,17 @@
+package com.shangqitong.caishoubang.common.persistence.query;
+
+public class MultiBaseQuery<T> extends BaseQuery<T> {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	private static final String KEY_TENANT_ID = "tenantId";
+	
+	
+	public MultiBaseQuery(){
+		super();
+		this.put(KEY_TENANT_ID, "");
+	}
+
+}

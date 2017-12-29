@@ -1,0 +1,46 @@
+package com.shangqitong.caishoubang.common.persistence.query;
+
+import java.util.HashMap;
+
+import org.apache.ibatis.type.Alias;
+
+import com.shangqitong.caishoubang.common.persistence.Page;
+
+/**
+ * 
+ * @since luoka @ 2016年5月5日 下午2:21:27
+ *
+ */
+@Alias("BaseQuery")
+public class BaseQuery<T> extends HashMap<String, Object> implements Query<T> {
+
+	private static final long serialVersionUID = 1L;
+
+	private static final String KEY_OF_PAGE = "_page_";
+	
+	@SuppressWarnings("unchecked")
+	@Override
+	public Page<T> getPage(){
+		if(this.containsKey(KEY_OF_PAGE)){
+			return (Page<T>) this.get(KEY_OF_PAGE);
+		}
+		//如果用户没有设置翻页，则默认返回所有
+		return new Page<T>(1,-1);
+	}
+	
+	/* (non-Javadoc)
+	 * @see com.shangqitong.caishoubang.common.persistence.query.Query#setPage(int, int)
+	 */
+	@Override
+	public void setPage(int pageNo, int pageSize){
+		this.put(KEY_OF_PAGE, new Page<T>(pageNo, pageSize));
+	}
+	
+	public BaseQuery<T> addConditon(String key, Object value){
+		if(value != null){
+			this.put(key, value);
+		}
+		return this;
+	}
+	
+}

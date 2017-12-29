@@ -1,0 +1,112 @@
+package com.shangqitong.caishoubang.common.constant;
+
+import java.util.HashMap;
+import java.util.Map;
+
+/**
+ * 仓库、库存常量
+ * 
+ * @author LY
+ * @since 2016年7月29日
+ *
+ */
+public class StockConstant {
+
+	/**
+	 * 出入库单类型 0：出库单
+	 */
+	public static final int BILL_TYPE_OUT = 0;
+
+	/**
+	 * 出入库单类型 1：入库单
+	 */
+	public static final int BILL_TYPE_IN = 1;
+
+	/**
+	 * 出入库单状态 0：未处理
+	 */
+	public static final int BILL_STATUS_NONE = 0;
+
+	/**
+	 * 出入库单状态 1：处理完成
+	 */
+	public static final int BILL_STATUS_DONE = 1;
+
+	/**
+	 * 出入库单状态 2：正在处理
+	 */
+	public static final int BILL_STATUS_DING = 2;
+	/**
+	 * 出入库类型 0：采购入库
+	 */
+	public static final int STOCK_IN_BUY = 0;
+
+	/**
+	 * 出入库类型 1：退货入库
+	 */
+	public static final int STOCK_IN_RETURN = 1;
+
+	/**
+	 * 出入库类型 2：盘盈入库
+	 */
+	public static final int STOCK_IN_MORE = 2;
+
+	/**
+	 * 出入库类型 3：其他入库
+	 */
+	public static final int STOCK_IN_OTHER = 3;
+
+	/**
+	 * 出入库类型 6：损耗出库
+	 */
+	public static final int STOCK_OUT_WASTAGE = 6;
+
+	/**
+	 * 出入库类型 7：订单出库
+	 */
+	public static final int STOCK_OUT_ORDER = 7;
+
+	/**
+	 * 出入库类型 8：盘亏出库
+	 */
+	public static final int STOCK_OUT_LESS = 8;
+
+	/**
+	 * 出入库类型 9：其他出库
+	 */
+	public static final int STOCK_OUT_OTHER = 9;
+
+	/**
+	 * 出入库类型信息表
+	 */
+	public static final Map<Integer, String> STOCK_IO_MAP = new HashMap<Integer, String>();
+
+	/**
+	 * 出入库单类型信息表，0 出库单，1入库单
+	 */
+	public static final Map<Integer, String> BILL_TYPE_MAP = new HashMap<Integer, String>();
+
+	/**
+	 * 出入库单状态信息表，0 未处理，1 处理完成，2 正在处理
+	 */
+	public static final Map<Integer, String> BILL_STATUS_MAP = new HashMap<Integer, String>();
+
+	static {
+		STOCK_IO_MAP.put(STOCK_IN_BUY, "采购入库");
+		STOCK_IO_MAP.put(STOCK_IN_RETURN, "退货入库");
+		STOCK_IO_MAP.put(STOCK_IN_MORE, "盘盈入库");
+		STOCK_IO_MAP.put(STOCK_IN_OTHER, "其他入库");
+		STOCK_IO_MAP.put(STOCK_OUT_WASTAGE, "损耗出库");
+		STOCK_IO_MAP.put(STOCK_OUT_ORDER, "订单出库");
+		STOCK_IO_MAP.put(STOCK_OUT_LESS, "盘亏出库");
+		STOCK_IO_MAP.put(STOCK_OUT_OTHER, "其他出库");
+
+		BILL_TYPE_MAP.put(BILL_TYPE_IN, "入库单");
+		BILL_TYPE_MAP.put(BILL_TYPE_OUT, "出库单");
+
+		BILL_STATUS_MAP.put(BILL_STATUS_NONE, "未处理");
+		BILL_STATUS_MAP.put(BILL_STATUS_DONE, "处理完成");
+		BILL_STATUS_MAP.put(BILL_STATUS_DING, "正在处理");
+	}
+
+}

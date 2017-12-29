@@ -9,6 +9,6 @@ public class RedisConstant {
 	// 默认超时时间15分钟
 	public static final Integer DEFAULT_EXPIRATION_SECONDS_NUMBER = 60 * 60;
 
-	public static final String CATEGORY_KEY = "za_themis_category_";
+	public static final String USER_KEY = "user_category_";
 
 }

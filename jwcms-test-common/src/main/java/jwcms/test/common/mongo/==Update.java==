@@ -1,0 +1,169 @@
+package com.shangqitong.caishoubang.common.mongo;
+
+import java.util.HashMap;
+import java.util.Map;
+
+import org.bson.BsonDocument;
+import org.bson.codecs.configuration.CodecRegistry;
+import org.bson.conversions.Bson;
+
+/**
+ * MongoDB数据修改内容构建
+ * 
+ * @author LY
+ *
+ */
+public class Update implements Bson {
+
+	protected Map<String, Map<String, Object>> updates = new HashMap<String, Map<String, Object>>();
+
+	public Map<String, Object> getMap(String key) {
+		if (this.updates.containsKey(key)) {
+			return this.updates.get(key);
+		}
+		Map<String, Object> map = new HashMap<String, Object>();
+		this.updates.put(key, map);
+		return map;
+	}
+	
+	/**
+	 * 修改内容构建
+	 * 
+	 * @param operator 操作类型，如：$set、$push等
+	 * @param fieldName 相关字段的名称
+	 * @param value 对于的值或参数
+	 * @return
+	 */
+	public Update update(String operator, String fieldName, Object value) {
+		this.getMap(operator).put(fieldName, value);
+		return this;
+	}
+	
+	/**
+	 * 更新某个字段，语法规则：<br />
+	 * { $set: { <field1>: "", ... } }<br />
+	 * 参考：https://docs.mongodb.com/manual/reference/operator/update/set/#up._S_set
+	 * 
+	 * @return
+	 */
+	public Update set(String fieldName, Object value) {
+		return update("$set", fieldName, value);
+	}
+
+	/**
+	 * 移除某个字段，语法规则：<br />
+	 * { $unset: { <field1>: "", ... } }<br />
+	 * 参考：https://docs.mongodb.com/manual/reference/operator/update/unset/#up._S_unset
+	 * 
+	 * @return
+	 */
+	public Update unset(String fieldName, Object value) {
+		return update("$unset", fieldName, value);
+	}
+	
+	/**
+	 * 某个字段增加指定的值，语法规则：<br />
+	 * { $inc: { <field1>: <amount1>, <field2>: <amount2>, ... } }<br />
+	 * 参考：https://docs.mongodb.com/manual/reference/operator/update/inc/#up._S_inc
+	 * 
+	 * @return
+	 */
+	public Update inc(String fieldName, int value) {
+		return update("$inc", fieldName, value);
+	}
+	
+	/**
+	 * 某个字段乘以的值，语法规则：<br />
+	 * { $mul: { field: <number> } }<br />
+	 * 参考：https://docs.mongodb.com/manual/reference/operator/update/mul/#up._S_mul
+	 * 
+	 * @return
+	 */
+	public Update mul(String fieldName, Object value) {
+		return update("$mul", fieldName, value);
+	}
+	
+	/**
+	 * 修改某个字段的名称，语法规则：<br />
+	 * {$rename: { <field1>: <newName1>, <field2>: <newName2>, ... } }<br />
+	 * 参考：https://docs.mongodb.com/manual/reference/operator/update/rename/#up._S_rename
+	 * 
+	 * @return
+	 */
+	public Update rename(String fieldName, String newName) {
+		return update("$rename", fieldName, newName);
+	}
+	
+	/**
+	 * 如果某个字段值小于指定值或为空，则修改该值为指定值，语法规则：<br />
+	 * {$rename: { <field1>: <newName1>, <field2>: <newName2>, ... } }<br />
+	 * 参考：https://docs.mongodb.com/manual/reference/operator/update/min/#up._S_min
+	 * 
+	 * @return
+	 */
+	public Update min(String fieldName, Object value) {
+		return update("$min", fieldName, value);
+	}
+	
+	/**
+	 * 如果某个字段值大于指定值或为空，则修改该值为指定值，语法规则：<br />
+	 * {$rename: { <field1>: <newName1>, <field2>: <newName2>, ... } }<br />
+	 * 参考：https://docs.mongodb.com/manual/reference/operator/update/max/#up._S_max
+	 * 
+	 * @return
+	 */
+	public Update max(String fieldName, Object value) {
+		return update("$max", fieldName, value);
+	}
+	
+	/**
+	 * 将指定值追加到数组，语法规则：<br />
+	 * { $push: { <field1>: <value1>, ... } }<br />
+	 * 参考：https://docs.mongodb.com/manual/reference/operator/update/push/#up._S_push
+	 * 
+	 * @return
+	 */
+	public Update push(String fieldName, Object value) {
+		return update("$push", fieldName, value);
+	}
+	
+	/**
+	 * 移除数组中指定的值，语法规则：<br />
+	 * { $pull: { <field1>: <value|condition>, <field2>: <value|condition>, ... } }<br />
+	 * 参考：https://docs.mongodb.com/manual/reference/operator/update/pull/#up._S_pull
+	 * 
+	 * @return
+	 */
+	public Update pull(String fieldName, Object value) {
+		return update("$pull", fieldName, value);
+	}
+
+	/**
+	 * 将指定值添加到数组，如果已存在，则不添加，语法规则：<br />
+	 * { $addToSet: { <field1>: <value1>, ... } }<br />
+	 * 参考：https://docs.mongodb.com/manual/reference/operator/update/addToSet/#up._S_addToSet
+	 * 
+	 * @return
+	 */
+	public Update addToSet(String fieldName, Object value) {
+		return update("$addToSet", fieldName, value);
+	}
+	
+	/**
+	 * 移除数组中第一个（-1）或最后一个（1）元素，语法规则：<br />
+	 * { $pop: { <field>: <-1 | 1>, ... } }<br />
+	 * 参考：https://docs.mongodb.com/manual/reference/operator/update/pop/#up._S_pop
+	 * 
+	 * @return
+	 */
+	public Update pop(String fieldName, int which) {
+		return update("$pop", fieldName, which);
+	}
+
+	@Override
+	public <TDocument> BsonDocument toBsonDocument(Class<TDocument> arg0, CodecRegistry arg1) {
+		System.out.println(Doc.toJson(updates));
+		return BsonDocument.parse(Doc.toJson(updates));
+	}
+
+}

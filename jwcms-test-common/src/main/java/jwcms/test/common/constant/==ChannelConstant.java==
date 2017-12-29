@@ -1,0 +1,47 @@
+package com.shangqitong.caishoubang.common.constant;
+
+/**
+ * 消息队列的channel或topic常量
+ * 
+ * @author LY
+ * @since 2016年7月7日
+ *
+ */
+public class ChannelConstant {
+
+	/**
+	 * 消息channel：订单完成消息通道
+	 */
+	public static final String CHANNEL_OF_ORDER_COMPLETED = "order.completed";
+
+	/**
+	 * 消息channel：订单状态发生变化
+	 */
+	public static final String CHANNEL_OF_ORDER_CHANGED = "order.changed";
+
+	/**
+	 * 消息channel：用户创建消息通道
+	 */
+	public static final String CHANNEL_OF_USER_CREATED = "user.created";
+
+	/**
+	 * 消息channel：积分处理消息通道
+	 */
+	public static final String CHANNEL_OF_SCORE_DEALED = "score.dealed";
+
+	/**
+	 * 消息channel：订单设置销售ID通道
+	 */
+	public static final String CHANNEL_OF_ORDER_SET_BUYER_MARKETER = "order.setBuyerMarketer";
+
+	/**
+	 * 消息channel：订单备份到TP_CRM_ORDER表
+	 */
+	public static final String CHANNEL_OF_ORDER_FOR_CRM = "order.crmOrder";
+
+	/**
+	 * 消息channel：订单API日志
+	 */
+	public static final String CHANNEL_OF_ORDER_API_LOG = "order.api.log";
+	
+}

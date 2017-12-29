@@ -1,0 +1,40 @@
+package com.shangqitong.caishoubang.common.constant;
+
+import java.util.HashMap;
+import java.util.Map;
+
+/**
+ * 用户相关的常量
+ * 
+ * @author LY
+ *
+ */
+public class UserConstant {
+
+	/**
+	 * 用户类型与对应的名称，包括：<br />
+	 * 0卖家，1买家，9系统
+	 */
+	public static final Map<Integer, String> USER_TYPE = new HashMap<Integer, String>();
+
+	/**
+	 * 卖家
+	 */
+	public static final int TYPE_SALER = 0;
+
+	/**
+	 * 买家
+	 */
+	public static final int TYPE_BUYER = 1;
+	
+	/**
+	 * 系统
+	 */
+	public static final int TYPE_SYSTEM = 9;
+
+	static {
+		USER_TYPE.put(TYPE_SALER, "卖家");
+		USER_TYPE.put(TYPE_BUYER, "买家");
+		USER_TYPE.put(TYPE_SYSTEM, "系统");
+	}
+}

@@ -1,0 +1,23 @@
+package com.shangqitong.caishoubang.common.persistence;
+
+import com.shangqitong.caishoubang.common.persistence.entity.BaseEntity;
+import com.shangqitong.caishoubang.common.persistence.query.BaseQuery;
+
+
+public interface BaseDao<T extends BaseEntity> {
+
+	public int insert(T entity);
+	
+	public T get(Object id);
+	
+	@BaseUpdate
+	public int update(T entity);
+
+	public int delete(Object id);
+	
+	public Page<T> list(BaseQuery<T> query);
+	
+	public int count(BaseQuery<T> query);
+	
+	
+}

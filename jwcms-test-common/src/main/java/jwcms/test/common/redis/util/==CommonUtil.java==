@@ -1,0 +1,104 @@
+package com.shangqitong.caishoubang.common.redis.util;
+
+import java.lang.reflect.Method;
+import java.math.BigDecimal;
+import java.math.RoundingMode;
+import java.util.regex.Pattern;
+
+import org.apache.commons.lang3.StringUtils;
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
+
+public class CommonUtil {
+
+    private static final Pattern json_pattern_1 = Pattern.compile("^\\{(.*?)\\}$");
+    private static final Pattern jaon_pattern_2 = Pattern.compile("^\\[(.*?)\\]$");
+
+    private static final Log logger = LogFactory.getLog(CommonUtil.class);
+
+
+    /**
+     * 检查字符串是否是json格式的，是返回true，否返回false
+     * 
+     * @param content
+     * @return
+     */
+    public static boolean checkIfJSON(String content) {
+        if (StringUtils.isBlank(content)) {
+            return false;
+        }
+
+        boolean b1 = json_pattern_1.matcher(content).find();
+        boolean b2 = jaon_pattern_2.matcher(content).find();
+
+        return (b1 || b2);
+    }
+
+    /**
+     * 给浮点数后面补0
+     * 
+     * @param d
+     * @param num
+     * @return
+     */
+    public static String getFixedScaleDouble(double d, int scale) {
+        BigDecimal big = BigDecimal.valueOf(d);
+        big = big.setScale(scale, RoundingMode.HALF_UP); // 默认四舍五入
+        return big.toString();
+    }
+
+    /**
+     * 给一个java bean的字符串字段填充空值
+     * @param <T>
+     * 
+     * @param object
+     * @param clazz
+     */
+    public static <T> void fillEmptyToBean(Object object, Class<T> clazz) {
+        Method[] methods = clazz.getMethods();
+        if (methods != null) {
+
+            for (Method f : methods) {
+                if (!f.getName().startsWith("set")) {
+                    continue;
+                }
+                try {
+                    Method mGet = clazz.getMethod(f.getName().replaceAll("set", "get"));
+                    String fieldType = mGet.getReturnType().getName();
+                    if (fieldType.equals("java.lang.String")) {
+                        Object value = mGet.invoke(object);
+                        if (value == null) {
+                            f.invoke(object, "");
+                        }
+                    }
+                } catch (Exception ex) {
+                    logger.error(ex.getMessage());
+                }
+            }
+        }
+    }
+
+
+    public static String filterDbFieldValue(String value, int maxLength) {
+		if (value == null) {
+			return value;
+		}
+		if (value.contains("'")) {
+			value = value.replace('\'', '"');
+		}
+		if (value.length() > maxLength) {
+			value = value.substring(0, maxLength);
+		}
+		return value;
+	}
+    
+    private static final Pattern time19 = Pattern.compile("^\\d{4}-\\d{2}-\\d{2} \\d{2}:\\d{2}:\\d{2}$");
+	public static boolean isTime19(String value) {
+		if (value == null || value.length() != 19) {
+			return false;
+		}
+		return time19.matcher(value).matches();
+	}
+    
+
+}

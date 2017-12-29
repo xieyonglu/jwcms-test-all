@@ -1,0 +1,31 @@
+package com.shangqitong.caishoubang.common.constant;
+
+import java.util.HashMap;
+import java.util.Map;
+
+/**
+ * 错误相关的常量（错误代码）
+ * 
+ * @author LY
+ *
+ */
+public class ErrorConstant {
+
+	public static final int START = 200100;
+
+	public static final int SUCCESS = 0;
+
+	private static final Map<Integer, String> errors = new HashMap<Integer, String>();
+
+	static {
+		errors.put(SUCCESS, "成功");
+	}
+
+	public static String getError(int code) {
+		if (errors.containsKey(code)) {
+			return errors.get(code);
+		}
+		return "其他错误";
+	}
+
+}

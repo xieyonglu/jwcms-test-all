@@ -1,0 +1,30 @@
+package com.shangqitong.caishoubang.common.persistence.entity;
+
+/**
+ * 
+ *	区域限制性数据领域对象<br>
+ *	该对象具有区域性，每个区域的数据具有隔离性，每个对象有个默认的区域ID
+ * 
+ * @author luoka
+ *
+ */
+public class CityLimitedDataEntity extends DataEntity {
+
+	private static final long serialVersionUID = -6848961894282435531L;
+
+	/**
+	 * 区域ID
+	 */
+	protected Integer cid;
+
+	public Integer getCid() {
+		return cid == null ? 0 : cid;
+	}
+
+	public void setCid(Integer cid) {
+		this.cid = cid;
+	}
+	
+	
+	
+}

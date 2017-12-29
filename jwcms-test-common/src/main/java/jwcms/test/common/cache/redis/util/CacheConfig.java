@@ -15,8 +15,8 @@ import org.springframework.context.annotation.Configuration;
  * @author lianyuan
  * @since 15/12/21 11:07
  */
-@Configuration
-@EnableCaching
+//@Configuration
+//@EnableCaching
 public class CacheConfig {
 
 	@Bean

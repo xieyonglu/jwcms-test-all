@@ -295,6 +295,6 @@ public class SentinelMasterSlavePool extends JedisSentinelPool {
 
     public void errorLog(String msg, Throwable e) {
         logger.error(msg, e);
-        log.severe(msg);
+//        log.severe(msg);
     }
 }

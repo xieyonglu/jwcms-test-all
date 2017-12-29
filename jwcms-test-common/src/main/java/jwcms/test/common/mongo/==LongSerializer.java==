@@ -1,0 +1,24 @@
+package com.shangqitong.caishoubang.common.mongo;
+
+import java.io.IOException;
+import java.lang.reflect.Type;
+
+import com.alibaba.fastjson.serializer.JSONSerializer;
+import com.alibaba.fastjson.serializer.ObjectSerializer;
+
+/**
+ * 在序列化Long类型时，值加双引号。原因在于MongoDB是通过间接方式支持Long类型的（javascript不支持long），这种情况下JSON无法反序列化。
+ * 
+ * @author LY
+ *
+ */
+public class LongSerializer implements ObjectSerializer {
+
+	public static LongSerializer instance = new LongSerializer();
+
+	@Override
+	public void write(JSONSerializer serializer, Object object, Object fieldName, Type fieldType, int arg4) throws IOException {
+		serializer.getWriter().write("\"" + String.valueOf(object) + "\"");
+	}
+
+}

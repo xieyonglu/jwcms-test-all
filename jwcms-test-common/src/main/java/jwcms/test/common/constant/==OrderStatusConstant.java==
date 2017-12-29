@@ -1,0 +1,134 @@
+package com.shangqitong.caishoubang.common.constant;
+
+import java.util.HashMap;
+import java.util.Map;
+
+/**
+ * 新订单状态的常量
+ * 
+ * @author LY
+ *
+ */
+public class OrderStatusConstant {
+
+	public static final Map<Integer, String> STATUS_MAP = new HashMap<Integer, String>();
+	public static final Map<Integer, String> STATUS_NEXT_MAP = new HashMap<Integer, String>();
+
+	/**
+	 * 提交订单：11，正向
+	 */
+	public static final int STATUS_ORDER_SUBMIT = 11;
+
+	/**
+	 * 订单审核：12，正向
+	 */
+	public static final int STATUS_ORDER_AUDIT = 12;
+
+	/**
+	 * 财务审核：13，正向
+	 */
+	public static final int STATUS_ORDER_FINANCE_AUDIT = 13;
+
+	/**
+	 * 出库审核：14，正向
+	 */
+	public static final int STATUS_ORDER_STOCK_AUDIT = 14;
+
+	/**
+	 * 发货确认：15，正向
+	 */
+	public static final int STATUS_ORDER_DELIVER_CONFIRM = 15;
+
+	/**
+	 * 收货确认：16，正向
+	 */
+	public static final int STATUS_ORDER_RECEIVE_CONFIRM = 16;
+
+	/**
+	 * 订单完成：17，正向
+	 */
+	public static final int STATUS_ORDER_FINISH = 17;
+
+	/**
+	 * 订单评价：18，正向
+	 */
+	public static final int STATUS_ORDER_APPRAISE = 18;
+
+	/**
+	 * 提交退单：21，逆向
+	 */
+	public static final int STATUS_CANCEL_SUBMIT = 21;
+
+	/**
+	 * 退单审核：22，逆向
+	 */
+	public static final int STATUS_CANCEL_AUDIT = 22;
+
+	/**
+	 * 收货确认：23，逆向
+	 */
+	public static final int STATUS_CANCEL_RECEIVE_CONFIRM = 23;
+
+	/**
+	 * 退款确认：24，逆向
+	 */
+	public static final int STATUS_CANCEL_REFUND_CONFIRM = 24;
+
+	/**
+	 * 收款确认：25，逆向
+	 */
+	public static final int STATUS_CANCEL_RECEIPT_CONFIRM = 25;
+
+	/**
+	 * 退单完成：26，逆向
+	 */
+	public static final int STATUS_CANCEL_FINISH = 26;
+
+	/**
+	 * 拒绝订单或退单：31
+	 */
+	public static final int STATUS_REFUSE = 31;
+
+	/**
+	 * 作废订单：32
+	 */
+	public static final int STATUS_UNSET = 32;
+
+	/**
+	 * 取消订单：33
+	 */
+	public static final int STATUS_CANCEL = 33;
+
+	static {
+		STATUS_MAP.put(STATUS_ORDER_SUBMIT, "提交订单");
+		STATUS_MAP.put(STATUS_ORDER_AUDIT, "订单审核");
+		STATUS_MAP.put(STATUS_ORDER_FINANCE_AUDIT, "财务审核");
+		STATUS_MAP.put(STATUS_ORDER_STOCK_AUDIT, "出库审核");
+		STATUS_MAP.put(STATUS_ORDER_DELIVER_CONFIRM, "发货确认");
+		STATUS_MAP.put(STATUS_ORDER_RECEIVE_CONFIRM, "收获确认");
+		STATUS_MAP.put(STATUS_ORDER_FINISH, "完成");
+		STATUS_MAP.put(STATUS_ORDER_APPRAISE, "评价");
+		STATUS_MAP.put(STATUS_CANCEL_SUBMIT, "提交退单");
+		STATUS_MAP.put(STATUS_CANCEL_AUDIT, "退单审核");
+		STATUS_MAP.put(STATUS_CANCEL_RECEIVE_CONFIRM, "收货确认");
+		STATUS_MAP.put(STATUS_CANCEL_REFUND_CONFIRM, "退款确认");
+		STATUS_MAP.put(STATUS_CANCEL_RECEIPT_CONFIRM, "收款确认");
+		STATUS_MAP.put(STATUS_CANCEL_FINISH, "完成");
+
+		STATUS_NEXT_MAP.put(STATUS_ORDER_SUBMIT, "提交订单");
+		STATUS_NEXT_MAP.put(STATUS_ORDER_AUDIT, "待订单审核");
+		STATUS_NEXT_MAP.put(STATUS_ORDER_FINANCE_AUDIT, "待财务审核");
+		STATUS_NEXT_MAP.put(STATUS_ORDER_STOCK_AUDIT, "待出库审核");
+		STATUS_NEXT_MAP.put(STATUS_ORDER_DELIVER_CONFIRM, "待发货确认");
+		STATUS_NEXT_MAP.put(STATUS_ORDER_RECEIVE_CONFIRM, "待收获确认");
+		STATUS_NEXT_MAP.put(STATUS_ORDER_FINISH, "完成");
+		STATUS_NEXT_MAP.put(STATUS_ORDER_APPRAISE, "待评价");
+		STATUS_NEXT_MAP.put(STATUS_CANCEL_SUBMIT, "提交退单");
+		STATUS_NEXT_MAP.put(STATUS_CANCEL_AUDIT, "待退单审核");
+		STATUS_NEXT_MAP.put(STATUS_CANCEL_RECEIVE_CONFIRM, "待收货确认");
+		STATUS_NEXT_MAP.put(STATUS_CANCEL_REFUND_CONFIRM, "待退款确认");
+		STATUS_NEXT_MAP.put(STATUS_CANCEL_RECEIPT_CONFIRM, "待收款确认");
+		STATUS_NEXT_MAP.put(STATUS_CANCEL_FINISH, "完成");
+	}
+
+}

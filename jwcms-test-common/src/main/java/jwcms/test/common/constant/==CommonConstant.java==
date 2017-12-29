@@ -1,0 +1,51 @@
+package com.shangqitong.caishoubang.common.constant;
+
+/**
+ * 通用常量
+ * 
+ * @author LY
+ *
+ */
+public class CommonConstant {
+
+	/**
+	 * 是否xxx，是 1
+	 */
+	public static final int YES = 1;
+
+	/**
+	 * 是否xxx，否 0
+	 */
+	public static final int NO = 0;
+
+	/**
+	 * true 1
+	 */
+	public static final int TRUE = 1;
+
+	/**
+	 * false 0
+	 */
+	public static final int FALSE = 0;
+
+	/**
+	 * 成功 0
+	 */
+	public static final int SUCCESS = 0;
+
+	/**
+	 * 失败 -1
+	 */
+	public static final int FAILED = -1;
+
+	/**
+	 * 已删除 1
+	 */
+	public static final int DELETED = 1;
+
+	/**
+	 * 未删除 0
+	 */
+	public static final int UNDELETED = 0;
+
+}

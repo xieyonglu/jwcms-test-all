@@ -1,0 +1,194 @@
+package com.shangqitong.caishoubang.common;
+
+import java.util.HashMap;
+
+/**
+ * 类似于Session或HttpServletRequest，包含了请求者的基本信息。 <br />
+ * <br />
+ * 在RPC接口调用中，通常作为接口方法的第一个参数（特殊情况除外）；不同接口对Request参数的要求可能不一样， 调用者需根据具体要求适当的初始化该参数。
+ * <br />
+ * <br />
+ * 注意：【订单接口】要求Request参数的所有字段都不能诶空。 <br />
+ * <br />
+ * 对于直接调用接口的平台，应先配置好平台类型和平台ID，以便于统计分析和问题排查；
+ * 其中平台ID是一个数值（1、2、3...）类型，确保任意两个平台的ID不一样即可。
+ * 
+ * @author LY
+ * @since 2016年7月5日
+ *
+ */
+public class Request extends HashMap<String, Object> {
+
+	private static final long serialVersionUID = 2185514130462122415L;
+
+	/**
+	 * 店铺ID
+	 */
+	private Integer shopId;
+
+	/**
+	 * 店铺名称
+	 */
+	private String shopName;
+
+	/**
+	 * 操作用户ID
+	 */
+	private Integer userId;
+
+	/**
+	 * 操作用户名称
+	 */
+	private String userName;
+
+	/**
+	 * 用户类型
+	 * 
+	 * @see com.shangqitong.caishoubang.common.constant.UserConstant#USER_TYPE
+	 */
+	private Integer userType;
+
+	/**
+	 * 操作客户端类型
+	 * 
+	 * @see com.shangqitong.caishoubang.common.constant.RequestConstant#MAP_CLIENT_TYPE
+	 */
+	private Integer clientType;
+
+	/**
+	 * 调用接口的平台类型
+	 * 
+	 * @see com.shangqitong.caishoubang.common.constant.RequestConstant#MAP_PLATFORM_TYPE
+	 */
+	private Integer platformType;
+
+	/**
+	 * 调用接口的平台ID
+	 */
+	private Integer platformId;
+
+	/**
+	 * 店铺ID
+	 */
+	public Integer getShopId() {
+		return shopId;
+	}
+
+	/**
+	 * 店铺ID
+	 */
+	public void setShopId(Integer shopId) {
+		this.shopId = shopId;
+	}
+
+	/**
+	 * 店铺名称
+	 */
+	public String getShopName() {
+		return shopName;
+	}
+
+	/**
+	 * 店铺名称
+	 */
+	public void setShopName(String shopName) {
+		this.shopName = shopName;
+	}
+
+	/**
+	 * 用户ID
+	 */
+	public Integer getUserId() {
+		return userId;
+	}
+
+	/**
+	 * 用户ID
+	 */
+	public void setUserId(Integer userId) {
+		this.userId = userId;
+	}
+
+	/**
+	 * 用户名称
+	 */
+	public String getUserName() {
+		return userName;
+	}
+
+	/**
+	 * 用户名称
+	 */
+	public void setUserName(String userName) {
+		this.userName = userName;
+	}
+
+	/**
+	 * 用户类型
+	 * 
+	 * @see com.shangqitong.caishoubang.common.constant.UserConstant#USER_TYPE
+	 */
+	public Integer getUserType() {
+		return userType;
+	}
+
+	/**
+	 * 用户类型
+	 * 
+	 * @see com.shangqitong.caishoubang.common.constant.UserConstant#USER_TYPE
+	 */
+	public void setUserType(Integer userType) {
+		this.userType = userType;
+	}
+
+	/**
+	 * 客户端类型
+	 * 
+	 * @see com.shangqitong.caishoubang.common.constant.RequestConstant#MAP_CLIENT_TYPE
+	 */
+	public Integer getClientType() {
+		return clientType;
+	}
+
+	/**
+	 * 客户端类型
+	 * 
+	 * @see com.shangqitong.caishoubang.common.constant.RequestConstant#MAP_CLIENT_TYPE
+	 */
+	public void setClientType(Integer clientType) {
+		this.clientType = clientType;
+	}
+
+	/**
+	 * 平台类型
+	 * 
+	 * @see com.shangqitong.caishoubang.common.constant.RequestConstant#MAP_PLATFORM_TYPE
+	 */
+	public Integer getPlatformType() {
+		return platformType;
+	}
+
+	/**
+	 * 平台类型
+	 * 
+	 * @see com.shangqitong.caishoubang.common.constant.RequestConstant#MAP_PLATFORM_TYPE
+	 */
+	public void setPlatformType(Integer platformType) {
+		this.platformType = platformType;
+	}
+
+	/**
+	 * 平台ID
+	 */
+	public Integer getPlatformId() {
+		return platformId;
+	}
+
+	/**
+	 * 平台ID
+	 */
+	public void setPlatformId(Integer platformId) {
+		this.platformId = platformId;
+	}
+	
+}

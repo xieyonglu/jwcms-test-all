@@ -1,0 +1,110 @@
+package com.shangqitong.caishoubang.common.persistence;
+
+import com.shangqitong.caishoubang.common.persistence.query.BaseQuery;
+
+public class Row extends BaseQuery<Row> {
+
+	private static final long serialVersionUID = 8314916808184370922L;
+
+	public String getString(String key, String defaultValue) {
+		Object value = this.get(key);
+		if (value != null) {
+			return value.toString().trim();
+		}
+		return defaultValue;
+	}
+
+	/**
+	 * 失败时返回null
+	 * 
+	 * @param key
+	 * @return
+	 */
+	public String getString(String key) {
+		return this.getString(key, null);
+	}
+
+	public int getInt(String key, int defaultValue) {
+		Object value = this.get(key);
+		if (value != null) {
+			try {
+				return Integer.valueOf(value.toString());
+			} catch (Exception err) {
+			}
+		}
+		return defaultValue;
+	}
+
+	/**
+	 * 失败时返回-1
+	 * 
+	 * @param key
+	 * @return
+	 */
+	public int getInt(String key) {
+		return this.getInt(key, -1);
+	}
+
+	public long getLong(String key, long defaultValue) {
+		Object value = this.get(key);
+		if (value != null) {
+			try {
+				return Long.valueOf(value.toString());
+			} catch (Exception err) {
+			}
+		}
+		return defaultValue;
+	}
+
+	/**
+	 * 失败时返回-1
+	 * 
+	 * @param key
+	 * @return
+	 */
+	public long getLong(String key) {
+		return this.getLong(key, -1);
+	}
+
+	public float getFloat(String key, float defaultValue) {
+		Object value = this.get(key);
+		if (value != null) {
+			try {
+				return Float.valueOf(value.toString());
+			} catch (Exception err) {
+			}
+		}
+		return defaultValue;
+	}
+
+	/**
+	 * 失败时返回-1
+	 * 
+	 * @param key
+	 * @return
+	 */
+	public float getFloat(String key) {
+		return this.getFloat(key, -1);
+	}
+
+	public double getDouble(String key, double defaultValue) {
+		Object value = this.get(key);
+		if (value != null) {
+			try {
+				return Double.valueOf(value.toString());
+			} catch (Exception err) {
+			}
+		}
+		return defaultValue;
+	}
+
+	/**
+	 * 失败时返回-1
+	 * 
+	 * @param key
+	 * @return
+	 */
+	public double getDouble(String key) {
+		return this.getDouble(key, -1);
+	}
+}

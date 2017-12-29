@@ -1,0 +1,24 @@
+package com.shangqitong.caishoubang.common.persistence.query;
+
+import java.io.Serializable;
+
+import com.shangqitong.caishoubang.common.persistence.Page;
+
+public interface Query<T> extends Serializable {
+
+	/**
+	 * 获取设置的分页参数
+	 * 
+	 * @return
+	 */
+	public Page<T> getPage();
+	
+	/**
+	 * 设置分页参数，如果没设置，则返回全部
+	 * 
+	 * @param pageNo
+	 * @param pageSize
+	 */
+	public void setPage(int pageNo, int pageSize);
+	
+}

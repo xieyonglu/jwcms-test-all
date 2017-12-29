@@ -18,3 +18,27 @@ redis:
     maxWaitMillis: 3000
     connectionTimeout: 5000
     soTimeout: 5000
+    
+## Redis Sentinel
+redis.sentinel.host1: 127.0.0.1
+redis.sentinel.port1: 26379
+
+redis.sentinel.host2: 127.0.0.1
+redis.sentinel.port2: 26380
+
+redis.sentinel.host3: 127.0.0.1
+redis.sentinel.port3: 26381
+
+redis.pool.maxTotal: 1024
+redis.pool.maxIdle: 200
+redis.pool.maxWaitMillis: 1000
+redis.pool.testOnBorrow: true
+
+redis.pool.timeBetweenEvictionRunsMillis: 30000
+redis.pool.minEvictableIdleTimeMillis: 30000
+redis.pool.softMinEvictableIdleTimeMillis: 10000
+redis.pool.numTestsPerEvictionRun: 1024
+
+# 1000*60*60*1
+redis.pool.expire: 3600000
+redis.pool.unlock: false

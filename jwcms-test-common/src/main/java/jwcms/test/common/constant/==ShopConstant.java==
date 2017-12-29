@@ -1,0 +1,33 @@
+package com.shangqitong.caishoubang.common.constant;
+
+import java.util.HashMap;
+import java.util.Map;
+
+public class ShopConstant {
+	/**
+	 * 店铺类型与对应的名称，包括：<br />
+	 * 0供货商，1买家
+	 */
+	public static final Map<Integer, String> SHOP_TYPE = new HashMap<Integer, String>();
+	/**
+	 * 供货商
+	 */
+	public static final int TYPE_SALER = 0;
+	/**
+	 * 买家
+	 */
+	public static final int TYPE_BUYER = 1;
+	
+	public static final Map<Integer, String> SHOP_STATUS = new HashMap<Integer, String>();
+	public static final int STATUS_SUSPEND = 2;
+	public static final int STATUS_OPEN = 1;
+	public static final int STATUS_CLOSE = 0;
+	static {
+		SHOP_TYPE.put(TYPE_SALER, "供货商");
+//		SHOP_TYPE.put(TYPE_BUYER, "买家");
+		
+		SHOP_STATUS.put(STATUS_SUSPEND, "暂停营业");
+		SHOP_STATUS.put(STATUS_CLOSE, "关闭");
+		SHOP_STATUS.put(STATUS_OPEN, "正常营业");
+	}
+}

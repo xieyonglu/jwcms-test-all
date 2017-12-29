@@ -1,0 +1,86 @@
+package com.shangqitong.caishoubang.common.persistence.entity;
+
+import org.codehaus.jackson.annotate.JsonProperty;
+
+import com.alibaba.fastjson.annotation.JSONField;
+
+public abstract class DataEntity extends BaseEntity {
+
+	private static final long serialVersionUID = 1L;
+	
+	/**
+	 * 创建用户
+	 */
+	@JSONField(name = "created_user")
+	@JsonProperty(value = "created_user")
+	protected String createdUser;
+	
+	/**
+	 * 创建时间
+	 */
+	@JSONField(name = "created_time")
+	@JsonProperty(value = "created_time")
+	protected String createdTime;
+	
+	/**
+	 * 更新用户
+	 */
+	@JSONField(name = "updated_user")
+	@JsonProperty(value = "updated_user")
+	protected String updatedUser;
+	
+	/**
+	 * 更新时间
+	 */
+	@JSONField(name = "updated_time")
+	@JsonProperty(value = "updated_time")
+	protected String updatedTime;
+	
+	/**
+	 * 版本号
+	 */
+	protected int version;
+
+	public String getCreatedUser() {
+		return createdUser;
+	}
+
+	public void setCreatedUser(String createdUser) {
+		this.createdUser = createdUser;
+	}
+
+	public String getCreatedTime() {
+		return createdTime;
+	}
+
+	public void setCreatedTime(String createdTime) {
+		this.createdTime = createdTime;
+	}
+
+	public String getUpdatedUser() {
+		return updatedUser;
+	}
+
+	public void setUpdatedUser(String updatedUser) {
+		this.updatedUser = updatedUser;
+	}
+
+	public String getUpdatedTime() {
+		return updatedTime;
+	}
+
+	public void setUpdatedTime(String updatedTime) {
+		this.updatedTime = updatedTime;
+	}
+
+	public int getVersion() {
+		return version;
+	}
+
+	public void setVersion(int version) {
+		this.version = version;
+	}
+	
+	
+
+}

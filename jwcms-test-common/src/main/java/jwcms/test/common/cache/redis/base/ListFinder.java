@@ -7,6 +7,7 @@ import java.util.Set;
  * @author lianyuan
  * @since 15/12/24 14:37
  */
+@SuppressWarnings("rawtypes")
 public interface ListFinder<K, V extends CacheSuffix> {
 
 	/**

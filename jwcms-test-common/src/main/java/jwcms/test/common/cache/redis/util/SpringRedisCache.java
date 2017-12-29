@@ -68,9 +68,9 @@ public class SpringRedisCache extends AbstractValueAdaptingCache {
     protected Object lookup(Object key) {
         try {
             Object object =  redisClientFacade.get(key.toString());
-//            if(null != object){
-//            	return JSONObject.parseObject((String) object, CategoryDO.class);
-//            }
+            if(null != object){
+//            	return JSONObject.parseObject((String) object, User.class);
+            }
             return object;
         } catch (Exception e) {
             logger.error("redis error lookup: {}", key, e);

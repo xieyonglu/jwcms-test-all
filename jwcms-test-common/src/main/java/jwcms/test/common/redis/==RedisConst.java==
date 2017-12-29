@@ -1,0 +1,8 @@
+package com.shangqitong.caishoubang.common.redis;
+
+public class RedisConst {
+
+	public static final String NS_SYSTEM = "tp:new:sys:";
+	public static final String DEFAULT_REDIS_PORT = "6379";
+	public static final String DEFAULT_REDIS_HOST = "127.0.0.1";
+}

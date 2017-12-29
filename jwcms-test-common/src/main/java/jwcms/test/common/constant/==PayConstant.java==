@@ -1,0 +1,69 @@
+package com.shangqitong.caishoubang.common.constant;
+
+import java.util.HashMap;
+import java.util.Map;
+
+/**
+ * 支付相关的常量
+ * 
+ * @author LY
+ *
+ */
+public class PayConstant {
+
+	/**
+	 * 支付方式与对应的名称，如0对应在线支付，包括：<br />
+	 * 1余额支付、2微信支付、3支付宝支付
+	 */
+	public static final Map<Integer, String> PAY_TYPE_MAP = new HashMap<Integer, String>();
+
+	/**
+	 * 支付状态与对应的名称，如0对应未支付，包括：<br />
+	 * 0未支付、1已支付、2支付失败
+	 */
+	public static final Map<Integer, String> PAY_STATUS_MAP = new HashMap<Integer, String>();
+
+	/**
+	 * 支付状态：未支付 0
+	 */
+	public static final Integer PAY_STATUS_NONE = 0;
+
+	/**
+	 * 支付状态：支付完成（已支付） 1
+	 */
+	public static final Integer PAY_STATUS_SUCCESS = 1;
+
+	/**
+	 * 支付状态：支付失败 2
+	 */
+	public static final Integer PAY_STATUS_FAILED = 2;
+
+	/**
+	 * 余额支付 1
+	 */
+	public static final int PAY_TYPE_BALANCE = 1;
+	
+	/**
+	 * 微信支付 2
+	 */
+	public static final int PAY_TYPE_WEIXIN = 2;
+
+	/**
+	 * 支付宝支付 3
+	 */
+	public static final int PAY_TYPE_ALIPAY = 3;
+
+
+
+	static {
+
+		PAY_STATUS_MAP.put(PAY_STATUS_NONE, "未支付");
+		PAY_STATUS_MAP.put(PAY_STATUS_SUCCESS, "已支付");
+		PAY_STATUS_MAP.put(PAY_STATUS_FAILED, "支付失败");
+
+		PAY_TYPE_MAP.put(PAY_TYPE_BALANCE, "余额支付");
+		PAY_TYPE_MAP.put(PAY_TYPE_WEIXIN, "微信支付");
+		PAY_TYPE_MAP.put(PAY_TYPE_ALIPAY, "支付宝支付");
+	}
+
+}

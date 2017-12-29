@@ -25,6 +25,7 @@ import redis.clients.jedis.Jedis;
 /**
  * 外部直接调用的redis入口 Created by lianyuan on 2015/9/16.
  */
+@SuppressWarnings("unchecked")
 public class RedisClientTemplate {
 
 	@Resource
@@ -75,7 +76,7 @@ public class RedisClientTemplate {
     public String setnxex(String key, Object value, int expiration) {
         Jedis jedis = getRedisWriteClient();
         try {
-            return jedis.set(key.getBytes(Charsets.UTF_8), serializer.serialize(value), NX_BYTES, EX_BYTES, expiration);
+            return null;//jedis.set(key.getBytes(Charsets.UTF_8), serializer.serialize(value), /*NX_BYTES, EX_BYTES,*/ expiration);
         } catch (Exception e) {
             throw new RedisException(e);
         } finally {
@@ -221,15 +222,13 @@ public class RedisClientTemplate {
     }
 
 
-    public <V> Multimap<String, V> mget(Set<String> keys) {
-
+	public <V> Multimap<String, V> mget(Set<String> keys) {
         if (keys.isEmpty()) {
             return ArrayListMultimap.create();
         }
         Jedis jedis = getRedisReadClient();
         List<String> keysList = new ArrayList<>(keys);
         try {
-
             Multimap<String, V> result = ArrayListMultimap.create();
 
             List<String> valueList = jedis.mget(keysList.toArray(new String[keysList.size()]));

@@ -1,0 +1,21 @@
+package com.shangqitong.caishoubang.common.persistence;
+
+import com.shangqitong.caishoubang.common.persistence.entity.MultiDataEntity;
+import com.shangqitong.caishoubang.common.persistence.query.BaseQuery;
+
+
+public interface MultiDao<T extends MultiDataEntity> extends BaseDao<T> {
+
+	public T get(Object id);
+	
+	public T get(BaseQuery<T> query);
+	
+	public int insert(T entity);
+	
+	public int update(T entity);
+	
+	public Page<T> list(BaseQuery<T> query);
+	
+	public int delete(Object id);
+	
+}

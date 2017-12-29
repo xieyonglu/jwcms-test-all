@@ -1,0 +1,193 @@
+package com.shangqitong.caishoubang.common.constant;
+
+import java.util.HashMap;
+import java.util.LinkedHashMap;
+import java.util.Map;
+
+/**
+ * 订单相关的常量
+ * 
+ * @author LY
+ *
+ */
+public class OrderConstant {
+
+	/**
+	 * 配送方式与对于的名称，包括：<br />
+	 * 送货上门 1、用户自提 2
+	 */
+	public static final Map<Integer, String> DELIVER_MAP = new HashMap<Integer, String>();
+
+	/**
+	 * 订单状态与对于的名称，包括：<br />
+	 * 
+	 */
+//	public static final Map<Integer, String> STATUS_MAP = new HashMap<Integer, String>();
+	
+	public static final Map<Integer, String> REFUND_STATUS_MAP = new HashMap<Integer, String>();
+
+	/**
+	 * 配送方式 1：送货上门
+	 */
+	public static final Integer DELIVER_SEND = 1;
+
+	/**
+	 * 配送方式 2：用户自提
+	 */
+	public static final Integer DELIVER_SELF = 2;
+
+	/**
+	 * 订单状态-1：订单创建，未支付成功
+	 */
+	public static final Integer STATUS_OF_CREATED = -1; //订单创建
+	
+	/**
+	 * 订单状态0：买家已完成支付，等待平台接单
+	 */
+	public static final Integer STATUS_OF_WAIT_TAKE = 0; //待接单，已支付
+	
+	/**
+	 * 订单状态1：平台已接单，买家显示等待收货，平台显示待派单
+	 */
+	public static final Integer STATUS_OF_WAIT_DISPATCH = 1; //已接单，待派单
+	
+	/**
+	 * 订单状态2：平台已派单，买家显示等待收货，卖家显示等待卖家接单
+	 */
+	public static final Integer STATUS_OF_DISPATCHED = 2; //已派单
+	
+	/**
+	 * 订单状态3：卖家已接单，买家显示等待收货，卖家显示等待发货
+	 */
+	public static final Integer STATUS_OF_SALER_TAKEN = 3; //卖家已接单
+	
+	/**
+	 * 订单状态4：卖家已拒绝订单，买家显示等待收货，卖家显示已拒绝订单，平台显示等待重新派单
+	 */
+	public static final Integer STATUS_OF_SALER_REFUSE = 4; //卖家拒单，待派单
+	
+	/**
+	 * 订单状态5：卖家已发货，买家显示等待收货，卖家显示已发货等待买家收货
+	 */
+	public static final Integer STATUS_OF_DELIVERY = 5; //已发货
+	
+	/**
+	 * 订单状态6：平台显示订单已完成，买家显示订单完成，卖家显示订单完成
+	 */
+	public static final Integer STATUS_OF_RECEIVE = 6; //已收货
+	
+	/**
+	 * 订单状态7：买家显示订单取消，平台显示订单已取消
+	 */
+	public static final Integer STATUS_OF_CANCEL = 7; //订单取消
+	
+	/**
+	 * 订单状态8：配送订单，平台显示订单已付款
+	 */
+	public static final Integer STATUS_OF_PAIED = 8; //订单已给供货商结款
+	
+	/**
+	 * 订单状态20：订单退款成功
+	 */
+	public static final Integer STATUS_OF_REFUND_SUCCESS = 20; //订单退款成功
+	
+	/**
+	 * 订单状态21：订单退款失败
+	 */
+	public static final Integer STATUS_OF_REFUND_FAILD = 21; //订单退款失败
+	
+	
+	
+	public static final Integer REFUND_WAY_OF_BALANCE = 1; //退款方式：退回到余额
+	public static final Integer REFUND_STATUS_OF_SUCCESS = 1; //退款状态：退款成功
+	public static final Integer REFUND_STATUS_OF_FAILED = 2; //退款状态：退款失败
+	
+	
+	/**
+	 * 订单类型0：采购订单
+	 */
+	public static final Integer TYPE_OF_BUY = 0;
+	
+	/**
+	 * 订单类型1：配送订单
+	 */
+	public static final Integer TYPE_OF_SELLER = 1;
+	
+	
+	/**
+	 * 订单查询排序：按订单创建时间排序 0
+	 */
+//	public static final Integer SORT_BY_CREATETIME = 0;
+//
+//	/**
+//	 * 订单查询排序：按订单修改时间排序 0
+//	 */
+//	public static final Integer SORT_BY_UPDATETIME = 1;
+//
+//	/**
+//	 * 订单来源 0：未指定来源
+//	 */
+//	public static final Integer SOURCE_OF_NONE = 0;
+//
+//	/**
+//	 * 订单来源 1：Android APP
+//	 */
+//	public static final Integer SOURCE_OF_ANDROID = 1;
+//
+//	/**
+//	 * 订单来源 2：IOS APP
+//	 */
+//	public static final Integer SOURCE_OF_IOS = 2;
+//
+//	/**
+//	 * 订单来源 3：微信端
+//	 */
+//	public static final Integer SOURCE_OF_WEIXIN = 3;
+//
+//	/**
+//	 * 订单来源 4：促销活动
+//	 */
+//	public static final Integer SOURCE_OF_ACTIVITY = 4;
+//
+//	/**
+//	 * 订单来源 5：web端
+//	 */
+//	public static final Integer SOURCE_OF_WEB = 5;
+//
+//	/**
+//	 * 订单来源 6：系统
+//	 */
+//	public static final Integer SOURCE_OF_SYS = 6;
+//
+//	/**
+//	 * 订单来源 7：商家手工录入
+//	 */
+//	public static final Integer SOURCE_OF_SALER = 7;
+	
+	public static final Map<Integer, String> ORDER_STATUS_MAP = new HashMap<Integer, String>();
+	
+	public static final Map<Integer, String> ORDER_TYPE_MSG = new LinkedHashMap<Integer,String>();
+	static {
+		ORDER_STATUS_MAP.put(STATUS_OF_CREATED, "创建订单");
+		ORDER_STATUS_MAP.put(STATUS_OF_WAIT_TAKE, "待接单");
+		ORDER_STATUS_MAP.put(STATUS_OF_WAIT_DISPATCH, "待派单");
+		ORDER_STATUS_MAP.put(STATUS_OF_DISPATCHED, "已派单");
+		ORDER_STATUS_MAP.put(STATUS_OF_SALER_TAKEN, "卖家已接单");
+		ORDER_STATUS_MAP.put(STATUS_OF_SALER_REFUSE, "卖家拒单");
+		ORDER_STATUS_MAP.put(STATUS_OF_DELIVERY, "已发货");
+		ORDER_STATUS_MAP.put(STATUS_OF_RECEIVE, "已收货");
+		ORDER_STATUS_MAP.put(STATUS_OF_CANCEL, "订单取消");
+		ORDER_STATUS_MAP.put(STATUS_OF_PAIED, "订单已结款");
+		
+		DELIVER_MAP.put(DELIVER_SEND, "送货上门");
+		DELIVER_MAP.put(DELIVER_SELF, "用户自提");
+		
+		REFUND_STATUS_MAP.put(REFUND_STATUS_OF_SUCCESS, "退款成功");
+		REFUND_STATUS_MAP.put(REFUND_STATUS_OF_FAILED, "退款失败");
+		
+		ORDER_TYPE_MSG.put(TYPE_OF_BUY, "服务商订单");
+		ORDER_TYPE_MSG.put(TYPE_OF_SELLER, "供货商订单");
+		
+	}
+	
+}

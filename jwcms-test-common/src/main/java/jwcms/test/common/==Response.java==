@@ -1,0 +1,98 @@
+package com.shangqitong.caishoubang.common;
+
+import java.util.HashMap;
+
+/**
+ * RPC接口方法请求统一返回类型（特殊情况除外）。<br />
+ * <br />
+ * 在设计接口时，如果需要返回包含实体信息，如 一个订单详情，则返回结果可定义为Response&lt;OrderExt&gt;；
+ * 如果仅需要知道执行情况，如更新订单状态，则返回结果可定义为Response&ltVoid&gt;即可。
+ * <br /><br />
+ * 错误代码可以在{@link com.shangqitong.caishoubang.common.constant.ErrorConstant}中定义；在错误代码中，0表示成功，-1表示通用（一般）错误。
+ * @author LY
+ * @since 2016年7月5日
+ *
+ * @param <T>
+ */
+public class Response<T> extends HashMap<String, Object> {
+
+	private static final long serialVersionUID = 5751197112871840714L;
+
+	/**
+	 * 错误代码，为0时表示请求处理成功；其他为失败；-1为通用失败代码，具体错误信息请参考desc
+	 */
+	private int code;
+
+	/**
+	 * 结果（错误代码）描述，当code=0时表示请求成功，但该字段可能为空；当code不等于0时，该字段不为空
+	 */
+	private String desc;
+
+	/**
+	 * 请求结果
+	 */
+	private T data;
+
+	/**
+	 * 错误代码，为0时表示请求处理成功；其他为失败；-1为通用失败代码，具体错误信息请参考desc
+	 * 
+	 * @author LY
+	 * @since 2016年7月5日
+	 *
+	 * @return
+	 */
+	public int getCode() {
+		return code;
+	}
+
+	public Response<T> setCode(int code) {
+		this.code = code;
+		return this;
+	}
+
+	public T getData() {
+		return data;
+	}
+
+	public Response<T> setData(T data) {
+		this.data = data;
+		return this;
+	}
+
+	/**
+	 * 结果（错误代码）描述，当code=0时表示请求成功，但该字段可能为空；当code不等于0时，该字段不为空
+	 * 
+	 * @author LY
+	 * @since 2016年7月5日
+	 *
+	 * @return
+	 */
+	public String getDesc() {
+		return desc;
+	}
+
+	public Response<T> setDesc(String desc) {
+		this.desc = desc;
+		return this;
+	}
+
+	/**
+	 * 设置错误信息，并设置code为-1
+	 * 
+	 * @author LY
+	 * @since 2016年7月5日
+	 *
+	 * @param desc
+	 * @return
+	 */
+	public Response<T> setError(String desc) {
+		this.code = -1;
+		return setDesc(desc);
+	}
+
+	public Response<T> setResult(int code, String desc) {
+		this.code = code;
+		this.desc = desc;
+		return this;
+	}
+}

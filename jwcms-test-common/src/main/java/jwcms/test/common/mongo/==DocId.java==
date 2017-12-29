@@ -1,0 +1,34 @@
+package com.shangqitong.caishoubang.common.mongo;
+
+import org.bson.BsonDocument;
+import org.bson.codecs.configuration.CodecRegistry;
+import org.bson.conversions.Bson;
+
+/**
+ * 构建MongoDB文档ID
+ * 
+ * @author LY
+ *
+ */
+public class DocId implements Bson {
+
+	private String json;
+
+	public DocId(Integer docId) {
+		this.json = "{\"_id\":" + docId + "}";
+	}
+
+	public DocId(Long docId) {
+		this.json = "{\"_id\":\"" + docId + "\"}";
+	}
+
+	public DocId(String docId) {
+		this.json = "{\"_id\":\"" + docId + "\"}";
+	}
+
+	@Override
+	public <TDocument> BsonDocument toBsonDocument(Class<TDocument> arg0, CodecRegistry arg1) {
+		return BsonDocument.parse(this.json);
+	}
+
+}

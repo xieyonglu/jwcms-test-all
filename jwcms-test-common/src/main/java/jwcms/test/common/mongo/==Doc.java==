@@ -1,0 +1,54 @@
+package com.shangqitong.caishoubang.common.mongo;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import org.bson.Document;
+
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.serializer.SerializeConfig;
+
+/**
+ * 构建和转换MongoDB文档
+ * 
+ * @author LY
+ *
+ */
+public class Doc {
+
+	public static SerializeConfig config = new SerializeConfig();
+
+	static {
+		config.put(Long.class, LongSerializer.instance);
+	}
+
+	public static Document parse(Object object) {
+		if (object == null) {
+			return null;
+		}
+		return Document.parse(JSON.toJSONString(object, config));
+	}
+
+	public static List<Document> parseArray(Object[] objects) {
+		if (objects == null || objects.length == 0) {
+			return null;
+		}
+		List<Document> list = new ArrayList<Document>();
+		for (Object object : objects) {
+			list.add(parse(object));
+		}
+		return list;
+	}
+
+	public static <T> T parse(Document doc, Class<T> t) {
+		if (doc == null) {
+			return null;
+		}
+		return JSON.parseObject(doc.toJson(), t);
+	}
+
+	public static String toJson(Object object) {
+		return JSON.toJSONString(object, config);
+	}
+
+}

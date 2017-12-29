@@ -1,0 +1,116 @@
+package com.shangqitong.caishoubang.common.constant;
+
+import java.util.HashMap;
+import java.util.Map;
+
+/**
+ * 订单联合状态 <br />
+ * 原理：Integer类型的每一个bit位可表示一种类型的状态 <br />
+ * 意义：一个字段可以包含多种类型状态，最多支持31种类型的状态
+ * 
+ * @author LY
+ *
+ */
+public class UnionStatusConstant {
+
+	/**
+	 * 发货状态：0000 0001 1，bit0，为0表示未发货，为1表示已发货
+	 */
+	public static final int STATUS_DELIVERY = 1;
+
+	/**
+	 * 收货状态：0000 0010 2，bit1，为0表示未收货，为1表示已收货
+	 */
+	public static final int STATUS_RECEIVE = (1 << 1);
+
+	/**
+	 * 退货状态：0000 0100 4，bit2，为0表示未退货，为1表示已退货
+	 */
+	public static final int STATUS_RETURN = (1 << 2);
+
+	/**
+	 * 评价状态：0000 1000 8，bit3，为0表示未评价，为1表示已评价
+	 */
+	public static final int STATUS_COMMENT = (1 << 3);
+
+	/**
+	 * 买家取消状态：0001 0000 16，bit4，为0表示买家未取消，为1表示买家未取消
+	 */
+	public static final int STATUS_BUYER_CANCEL = (1 << 4);
+
+	/**
+	 * 卖家取消状态：0010 0000 32，bit5，为0表示卖家未取消，为1表示卖家未取消
+	 */
+	public static final int STATUS_SALER_CANCEL = (1 << 5);
+	
+	/**
+	 * 卖家修改订单金额状态：0100 0000 64，bit6，为0表示卖家未取消，为1表示卖家未取消
+	 */
+	public static final int STATUS_SALER_CHANGE_PRICE = (1 << 6);
+
+	public static final Map<Integer, Integer> UNION_ORDER_STATUS = new HashMap<Integer, Integer>();
+
+	static {
+		/*UNION_ORDER_STATUS.put(OrderConstant.STATUS_OF_DELIVER, STATUS_DELIVERY);
+		UNION_ORDER_STATUS.put(OrderConstant.STATUS_OF_ACCEPT, STATUS_RECEIVE);
+		UNION_ORDER_STATUS.put(OrderConstant.STATUS_OF_BUY_CANCEL, STATUS_BUYER_CANCEL);
+		UNION_ORDER_STATUS.put(OrderConstant.STATUS_OF_SALE_APPLY_CANCEL, STATUS_SALER_CANCEL);
+		UNION_ORDER_STATUS.put(OrderConstant.STATUS_OF_COMMIT, STATUS_COMMENT);*/
+	}
+
+	public static Integer getSingleStatus(Integer orderStatus) {
+		if (UNION_ORDER_STATUS.containsKey(orderStatus)) {
+			return UNION_ORDER_STATUS.get(orderStatus);
+		}
+		return null;
+	}
+	
+	/**
+	 * 收货确认：0000 0001 1，bit0，为0表示未收货，为1表示已收货
+	 */
+	public static final int US_GOODS_RECEIVE_CONFIRM = 1;
+	
+	/**
+	 * 订单评价：0000 0010 2，bit1，为0表示未评价，为1表示已评价
+	 */
+	public static final int US_ORDER_APPRAISE = (1 << 1);
+
+	/**
+	 * 在当前的original状态中加入另一种状态
+	 * 
+	 * @param original
+	 *            当前状态
+	 * @param status
+	 *            待加入的状态
+	 * @return
+	 */
+	public static int add(int original, int status) {
+		return original | status;
+	}
+
+	/**
+	 * 从当期的original状态中移除一种状态
+	 * 
+	 * @param original
+	 *            当前状态
+	 * @param status
+	 *            待移除的状态
+	 * @return
+	 */
+	public static int remove(int original, int status) {
+		return original ^ status;
+	}
+
+	/**
+	 * 判断当前original状态中是否包含指定状态
+	 * 
+	 * @param original
+	 *            当前状态
+	 * @param status
+	 *            是否包含的状态
+	 * @return
+	 */
+	public static boolean is(int original, int status) {
+		return (original & status) == status;
+	}
+}

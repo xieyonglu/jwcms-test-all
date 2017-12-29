@@ -1,0 +1,23 @@
+package com.shangqitong.caishoubang.common.persistence.entity;
+
+import java.io.Serializable;
+
+import com.alibaba.fastjson.annotation.JSONField;
+
+public abstract class BaseEntity implements Serializable{
+
+	private static final long serialVersionUID = 1L;
+	
+	@JSONField(name = "id")
+	protected Object id;
+	
+	public Object getId() {
+		return id;
+	}
+
+	public void setId(Object id) {
+		this.id = id;
+	}
+
+	
+}

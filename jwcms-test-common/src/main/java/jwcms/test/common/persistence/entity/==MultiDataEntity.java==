@@ -1,0 +1,27 @@
+package com.shangqitong.caishoubang.common.persistence.entity;
+
+/**
+ * 多租户实体父类
+ * @since luoka @ 2016年5月4日 上午10:32:01
+ *
+ */
+public abstract class MultiDataEntity extends DataEntity {
+
+	private static final long serialVersionUID = 1L;
+
+	/**
+	 * 租户ID
+	 */
+	protected String tenantId;
+
+	public String getTenantId() {
+		return tenantId;
+	}
+
+	public void setTenantId(String tenantId) {
+		this.tenantId = tenantId;
+	}
+	
+	
+	
+}

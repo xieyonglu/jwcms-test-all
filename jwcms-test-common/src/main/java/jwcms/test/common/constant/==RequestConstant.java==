@@ -1,0 +1,113 @@
+package com.shangqitong.caishoubang.common.constant;
+
+import java.util.HashMap;
+import java.util.Map;
+
+/**
+ * RPC接口请求常量
+ * 
+ * @author LY
+ *
+ */
+public class RequestConstant {
+
+	/**
+	 * 客户端类型集合
+	 */
+	public static final Map<Integer, String> MAP_CLIENT_TYPE = new HashMap<Integer, String>();
+
+	/**
+	 * 客户端类型0：安卓客户端
+	 */
+	public static final int CLIENT_TYPE_ANDROID = 0;
+
+	/**
+	 * 客户端类型1：苹果客户端
+	 */
+	public static final int CLIENT_TYPE_IOS = 1;
+
+	/**
+	 * 客户端类型2：网页客户端（包括微信、管理平台等）
+	 */
+	public static final int CLIENT_TYPE_WEB = 2;
+	
+	/**
+	 * 客户端类型3：客户端应用程序
+	 */
+	public static final int CLIENT_TYPE_APP = 3;
+
+	static {
+		MAP_CLIENT_TYPE.put(CLIENT_TYPE_ANDROID, "安卓客户端");
+		MAP_CLIENT_TYPE.put(CLIENT_TYPE_ANDROID, "苹果客户端");
+		MAP_CLIENT_TYPE.put(CLIENT_TYPE_WEB, "网页客户端");
+		MAP_CLIENT_TYPE.put(CLIENT_TYPE_APP, "应用客户端");
+	}
+
+	/**
+	 * 平台类型集合
+	 */
+	public static final Map<Integer, String> MAP_PLATFORM_TYPE = new HashMap<Integer, String>();
+
+	/**
+	 * 平台类型0：客户端接口
+	 */
+	public static final int PLATFORM_TYPE_API = 0;
+
+	/**
+	 * 平台类型1：后台
+	 */
+	public static final int PLATFORM_TYPE_ADMIN = 1;
+
+	/**
+	 * 平台类型2：CRM平台
+	 */
+	public static final int PLATFORM_TYPE_CRM = 2;
+
+	/**
+	 * 平台类型3：数据处理
+	 */
+	public static final int PLATFORM_TYPE_DATA = 3;
+
+	/**
+	 * 平台类型4：SAAS平台
+	 */
+	public static final int PLATFORM_TYPE_SAAS = 4;
+
+	/**
+	 * 平台类型5：任务处理
+	 */
+	public static final int PLATFORM_TYPE_JOB = 5;
+
+	/**
+	 * 平台类型6：solr
+	 */
+	public static final int PLATFORM_TYPE_SOLR = 6;
+
+	/**
+	 * 平台类型7：sso
+	 */
+	public static final int PLATFORM_TYPE_SSO = 7;
+
+	/**
+	 * 平台类型8：partner
+	 */
+	public static final int PLATFORM_TYPE_PARTNER = 8;
+	
+	/**
+	 * 平台类型9：订单同步
+	 */
+	public static final int PLATFORM_TYPE_O2N = 9;
+
+	static {
+		MAP_PLATFORM_TYPE.put(PLATFORM_TYPE_API, "接口平台");
+		MAP_PLATFORM_TYPE.put(PLATFORM_TYPE_ADMIN, "管理后台");
+		MAP_PLATFORM_TYPE.put(PLATFORM_TYPE_CRM, "CRM平台");
+		MAP_PLATFORM_TYPE.put(PLATFORM_TYPE_DATA, "数据平台");
+		MAP_PLATFORM_TYPE.put(PLATFORM_TYPE_SAAS, "SAAS平台");
+		MAP_PLATFORM_TYPE.put(PLATFORM_TYPE_JOB, "任务平台");
+		MAP_PLATFORM_TYPE.put(PLATFORM_TYPE_SOLR, "SOLR平台");
+		MAP_PLATFORM_TYPE.put(PLATFORM_TYPE_SSO, "单点登录");
+		MAP_PLATFORM_TYPE.put(PLATFORM_TYPE_PARTNER, "合作伙伴");
+		MAP_PLATFORM_TYPE.put(PLATFORM_TYPE_O2N, "订单同步");
+	}
+}
