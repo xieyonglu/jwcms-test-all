@@ -18,7 +18,7 @@ public class JedisPoolExt extends JedisPool {
 
 	public JedisPoolExt(GenericObjectPoolConfig poolConfig, String host, int port, int connectionTimeout, int soTimeout, String password, int database, String clientName) {
 //		super(poolConfig, host, port, connectionTimeout, soTimeout, password, database, clientName, false, null, null, null);
-		super(poolConfig, host, port, connectionTimeout, soTimeout, password, database, clientName);
+//		super(poolConfig, host, port, connectionTimeout, soTimeout, password, database, clientName);
 		
 //		 public JedisPool(final GenericObjectPoolConfig poolConfig, final String host, int port,
 //			      final int connectionTimeout, final int soTimeout, final String password, final int database,
