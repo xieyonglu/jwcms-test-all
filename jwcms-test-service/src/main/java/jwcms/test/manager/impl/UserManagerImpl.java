@@ -4,11 +4,8 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
-import org.springframework.cache.annotation.CacheEvict;
-import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
-import jwcms.test.common.cache.redis.util.RedisConstant;
 import jwcms.test.common.exception.ServiceException;
 import jwcms.test.common.query.QueryResult;
 import jwcms.test.converter.UserConverter;
@@ -48,14 +45,14 @@ public class UserManagerImpl implements UserManager {
 		userDao.removeUser(userId);
 	}
 	
-	@CacheEvict(value = "test", key = "'" + RedisConstant.USER_KEY + "'+#a0.id")
+//	@CacheEvict(value = "test", key = "'" + RedisConstant.USER_KEY + "'+#a0.id")
 	@Override
 	public void updateUser(User user) throws Exception {
 		TUser tuser = userConverter.invert(user);
 		userDao.updateUser(tuser);
 	}
 
-	@Cacheable(value = "test", key = "'" + RedisConstant.USER_KEY + "'+#a0", condition = "!T(org.springframework.transaction.support.TransactionSynchronizationManager).synchronizationActive")
+//	@Cacheable(value = "test", key = "'" + RedisConstant.USER_KEY + "'+#a0", condition = "!T(org.springframework.transaction.support.TransactionSynchronizationManager).synchronizationActive")
 	@Override
 	public User queryUserById(Long userId) throws Exception {
 		if(userId.compareTo(1L) == 0) {
