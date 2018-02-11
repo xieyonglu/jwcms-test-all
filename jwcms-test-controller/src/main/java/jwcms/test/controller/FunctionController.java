@@ -45,7 +45,7 @@ public class FunctionController {
 	@ResponseBody
 	@LoginRequired
 	public ResponseEntity<?> loadFunctionByDB(HttpServletRequest httpRequest, HttpServletResponse httpResponse) throws Exception {
-		functionManager.loadFunctionByDb();
+		functionManager.loadFunctionByDB();
 		
 		return ResponseEntity.success();
 	}
@@ -55,7 +55,7 @@ public class FunctionController {
 	@ResponseBody
 	@LoginRequired
 	public ResponseEntity<?> loadFunctionByZK(HttpServletRequest httpRequest, HttpServletResponse httpResponse) throws Exception {
-		functionManager.loadFunctionByZk();
+		functionManager.loadFunctionByZK();
 		
 		return ResponseEntity.success();
 	}

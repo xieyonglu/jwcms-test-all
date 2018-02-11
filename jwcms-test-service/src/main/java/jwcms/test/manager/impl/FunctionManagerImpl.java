@@ -245,7 +245,7 @@ public class FunctionManagerImpl implements FunctionManager, InitializingBean {
 	}
 
 	@Override
-	public void loadFunctionByDb() {
+	public void loadFunctionByDB() {
 		List<Function> functions = listAllFunctions();
 		for (Function function : functions) {
 			FunctionContainer.addFunction(function.getFunctionName(), function.getFunctionPath());
@@ -253,7 +253,7 @@ public class FunctionManagerImpl implements FunctionManager, InitializingBean {
 	}
 
 	@Override
-	public void loadFunctionByZk() {
+	public void loadFunctionByZK() {
 		try {
 			List<String> childrenPaths = client.getChildren().forPath(path);
 			if (childrenPaths.isEmpty()) {
