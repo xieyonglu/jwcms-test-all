@@ -5,7 +5,7 @@ import java.util.List;
 /**
  * <h1>IConvertor 接口转换类</h1>
  * 
- * @author 谢永路 (yonglu.xie@ele.me)
+ * @author 谢永路 (573546261@qq.com)
  */
 public interface IConverter<A, B> {
 

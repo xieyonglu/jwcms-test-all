@@ -127,8 +127,8 @@ public class FunctionManagerImpl implements FunctionManager, InitializingBean {
 		RetryPolicy retryPolicy = new ExponentialBackoffRetry(5, 5000);
 		client = CuratorFrameworkFactory.builder().connectString(zkUrl).connectionTimeoutMs(5000).sessionTimeoutMs(3000).retryPolicy(retryPolicy).build();
 		client.getConnectionStateListenable().addListener(clientListener, zkWatchThreadPool);
-		client.start();
-		client.blockUntilConnected();
+//		client.start();
+//		client.blockUntilConnected();
 	}
 
 	private void reinit() throws InterruptedException {
@@ -146,8 +146,8 @@ public class FunctionManagerImpl implements FunctionManager, InitializingBean {
 	@SuppressWarnings("resource")
 	private void watcherPath(String path) throws Exception {
 		PathChildrenCache cache = new PathChildrenCache(client, path, false);
-		cache.start();
-		cache.getListenable().addListener(plis, zkWatchThreadPool);
+//		cache.start();
+//		cache.getListenable().addListener(plis, zkWatchThreadPool);
 	}
 
 	@Override

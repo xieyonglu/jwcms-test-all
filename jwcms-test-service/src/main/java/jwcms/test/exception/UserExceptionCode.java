@@ -7,7 +7,7 @@ import jwcms.test.common.exception.IExceptionCode;
 /**
  * <h1>用户信息异常枚举</h1>
  * 
- * @author 谢永路 (yonglu.xie@ele.me)
+ * @author 谢永路 (573546261@qq.com)
  */
 public enum UserExceptionCode implements IExceptionCode {
 

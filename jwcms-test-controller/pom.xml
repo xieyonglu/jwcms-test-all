@@ -3,13 +3,13 @@
 	<parent>
 		<groupId>jwcms</groupId>
 		<artifactId>jwcms-test-all</artifactId>
-		<version>1.0.0</version>
+		<version>1.0.0-SNAPSHOT</version>
 	</parent>
 	
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>jwcms</groupId>
 	<artifactId>jwcms-test-controller</artifactId>
-	<version>1.0.0</version>
+	<version>1.0.0-SNAPSHOT</version>
 	<packaging>jar</packaging>
 
 	<name>jwcms-test-controller</name>
@@ -23,13 +23,13 @@
 		<dependency>
 			<groupId>jwcms</groupId>
 			<artifactId>jwcms-test-common</artifactId>
-			<version>1.0.0</version>
+			<version>1.0.0-SNAPSHOT</version>
 		</dependency>
 		
 		<dependency>
 			<groupId>jwcms</groupId>
 			<artifactId>jwcms-test-service</artifactId>
-			<version>1.0.0</version>
+			<version>1.0.0-SNAPSHOT</version>
 		</dependency>
 		
 		<!-- Validation -->

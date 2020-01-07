@@ -6,7 +6,7 @@ import java.util.List;
 /**
  * <h1>Convertor 抽象转换类</h1>
  * 
- * @author 谢永路 (yonglu.xie@ele.me)
+ * @author 谢永路 (573546261@qq.com)
  */
 public abstract class Converter<A, B> implements IConverter<A, B> {
 
