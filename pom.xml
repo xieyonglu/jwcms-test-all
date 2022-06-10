@@ -38,7 +38,7 @@
 		<zookeeper.version>3.5.2-alpha</zookeeper.version>
 		<zkclient.version>0.9</zkclient.version>
 		<curator.version>2.11.1</curator.version>
-		<alibaba.dubbo.version>2.6.0</alibaba.dubbo.version>
+		<alibaba.dubbo.version>2.6.12</alibaba.dubbo.version>
 
 		<springext-plugin-version>1.2</springext-plugin-version>
 		<jetty-version>8.1.7.v20120910</jetty-version>
